@@ -1,6 +1,12 @@
-function volume_sphere() {
-    //Write your code here
-  
-} 
+function volume_sphere(event) {
+  event.preventDefault(); // Prevent form submission
 
-window.onload = document.getElementById('MyForm').onsubmit = volume_sphere;
+  let radius = document.getElementById("radius").value;
+  let volume = (4 / 3) * 3.14 * Math.pow(radius, 3);
+  
+  document.getElementById("volume").value = volume.toFixed(2);
+}
+
+window.onload = function() {
+  document.getElementById('MyForm').addEventListener('submit', volume_sphere);
+};
